@@ -6,9 +6,12 @@ struct Node {
   struct Node* next;
 };
 
-typedef struct Node* DoublyLinkedList;
+typedef struct DNode* DoublyLinkedList;
 struct DNode {
   Item item;
   struct DNode* prev;
   struct DNode* next;
 };
+
+void slist_append(SinglyLinkedList, Item);
+void slist_prepend(SinglyLinkedList, Item);
