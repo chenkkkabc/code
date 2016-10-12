@@ -1,7 +1,7 @@
-objects = sort.c basic.c *_sort.c
+objects = sort.C basic.C *_sort.C
 
 main: $(objects)
-	gcc -Wall $(objects) -g -o sort.out
+	g++ -Wall $(objects) -g -o sort.out
 
 run: main
 	./sort.out

@@ -1,17 +1,15 @@
 typedef int Item;
-typedef struct Node* SinglyLinkedList;
-typedef struct Node* CircularLinkedList;
 struct Node {
   Item item;
-  struct Node* next;
+  Node* next;
 };
+typedef Node* SinglyLinkedList;
+typedef Node* CircularLinkedList;
 
-typedef struct DNode* DoublyLinkedList;
 struct DNode {
   Item item;
-  struct DNode* prev;
-  struct DNode* next;
+  DNode* prev;
+  DNode* next;
 };
+typedef DNode* DoublyLinkedList;
 
-void slist_append(SinglyLinkedList, Item);
-void slist_prepend(SinglyLinkedList, Item);

@@ -1,26 +1,19 @@
 // 厄拉多塞筛法求素数
-#include <stdlib.h>
-#include <stdio.h>
+
+#include <iostream>
+using namespace std;
+
 void sieve_of_eratosthenes(int n) {
-  int i, j;
-  int* a = (int*)malloc((n + 1) * sizeof(int));
-  for (i = 2; i < n; i++) {
-    a[i] = 1;
-  }
-  for (i = 2; i < n; i++) {
-    if (a[i]) {
-      for (j = i; i * j < n; j++) {
-        a[i * j] = 0;
-      }
-    }
-  }
-  for (i = 2; i < n; i++) {
-    if (a[i]) {
-      printf("%4d ", i);
-    }
-  }
+  bool* a = new bool[n];
+  a[0] = a[1] = false;
+  for (int i = 2; i < n; i++) a[i] = true;
+  for (int i = 2; i * i < n; i++)
+    if (a[i])
+      for (int j = i * i; j < n; j += i) a[j] = false;
+  for (int i = 0; i < n; i++)
+    if (a[i]) printf("%4d ", i);
   printf("\n");
-  free(a);
+  delete[] a;
 }
 
 // test stub
